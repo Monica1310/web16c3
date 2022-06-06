@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended:true}))
 const PORT = process.env.PORT || 8080
 app.get("/", (req,res) => {
     fs.readFile("./db.json", {encoding:"utf-8"}, (err,data) => {
-        res.end("hello i am herea")
+        res.end("hello i am here")
     })
 })
 ///create 
