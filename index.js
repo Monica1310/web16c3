@@ -7,8 +7,12 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
-
-
+const PORT = process.env.PORT || 8080
+app.get("/", (req,res) => {
+    fs.readFile("./db.json", {encoding:"utf-8"}, (err,data) => {
+        res.end("hello i am herea")
+    })
+})
 ///create 
 app.post("/user/create", (req,res) => {
     fs.readFile("./db.json", {encoding:"utf-8"}, (err,data) => {
@@ -148,6 +152,9 @@ app.post("/db", (req,res) => {
 })
 
 
-app.listen(8080, () => {
-    console.log("server started in localhost:8080")
-})
+// app.listen(8080, () => {
+//     console.log("server started in localhost:8080")
+// })
+
+
+app.listen(PORT)
